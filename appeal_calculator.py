@@ -102,7 +102,3 @@ class AppealCalculator:
         self.Holidays()
         print(f"A hatarido vege {self.endday} napjan vegzodik")
 
-
-idopont = input("Irja be a hatarozat idopontjat kotojelekkel elvalasztva: ")
-hatarozat1 = AppealCalculator(idopont)
-hatarozat1.WriteDate()
