@@ -6,15 +6,17 @@ from dateutil.easter import easter
 
 class AppealCalculator:
     
-    def __init__(self, startd: str):
+    def __init__(self, startd: str, startday = date.today()):
         self.startd = startd
-        
-        self.startday = date.fromisoformat(startd)
+        self.startday = startday
+        try:
+            self.startday = date.fromisoformat(startd)
+        except:
+            print("Rosszul adta meg a datumot, a hatarido a mai naptol van szamolva. Probalja ujra pl: 2023-01-01")
     
     def PlusDays(self):
         self.endday = self.startday + timedelta(days=15)
         return self.endday
-
 
     def WeekEnd(self):
         what_d = date.isoweekday(self.endday)
@@ -25,7 +27,6 @@ class AppealCalculator:
             self.endday = self.endday + timedelta(days=1)
                 
         return self.endday    
-
 
     def Holidays(self):
         self.PlusDays()
@@ -76,7 +77,6 @@ class AppealCalculator:
             
         return self.endday
 
-
     def JudicalVacation(self):
         this_year = self.startday.year
         next_year = (self.endday + timedelta(weeks=52)).year
@@ -97,8 +97,6 @@ class AppealCalculator:
         
         return self.endday
 
-
     def WriteDate(self):
         self.Holidays()
         print(f"A hatarido vege {self.endday} napjan vegzodik")
-
