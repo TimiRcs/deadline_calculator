@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 from datetime import date, timedelta
 from dateutil.easter import easter
@@ -12,7 +12,7 @@ class AppealCalculator:
         try:
             self.startday = date.fromisoformat(startd)
         except:
-            print("Rosszul adta meg a datumot, a hatarido a mai naptol van szamolva. Probalja ujra pl: 2023-01-01")
+            print("Rosszul adta meg a dátumot, a hataridő a mai naptól van számolva. Próbálja újra pl: 2023-01-01")
     
     def PlusDays(self):
         self.endday = self.startday + timedelta(days=15)
@@ -99,4 +99,4 @@ class AppealCalculator:
 
     def WriteDate(self):
         self.Holidays()
-        print(f"A hatarido vege {self.endday} napjan vegzodik")
+        print(f"A határidő {self.endday} napján végződik")
