@@ -1,13 +1,13 @@
 #!/usr/bin/python
-# -*- coding: iso-8859-15 -*-
+# -*- coding: utf-8 -*-
 
 from appeal_calculator import AppealCalculator
 
 key_pressed = ""
 while key_pressed != "x":
     print("************************************************")
-    mydate = input("Irja be a hatarozat idopontjat kotojelekkel elvalasztva: ")
+    mydate = input("Írja be a határozat időpontját kötőjelekkel elválasztva: ")
     hatarozat1 = AppealCalculator(mydate)
     hatarozat1.WriteDate()
-    key_pressed = input("Kilepeshez nyomja meg az 'x' gombot vagy folytatashoz nyomjon 'Enter'-t. ")
+    key_pressed = input("Kilépéshez nyomja meg az 'x' gombot vagy folytatáshoz nyomjon 'Enter'-t. ")
     
